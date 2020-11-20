@@ -70,7 +70,7 @@ class ExpiringScope implements Scope
         $builder->macro('expiresToday', function (Builder $builder) {
             $model = $builder->getModel();
 
-            return $builder->whereDate($model->getQualifiedExpiresAtColumn(), date('Y-m-d')));
+            return $builder->whereDate($model->getQualifiedExpiresAtColumn(), date('Y-m-d'));
         });
     }    
 }
