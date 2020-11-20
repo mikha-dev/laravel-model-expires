@@ -14,6 +14,7 @@ class ExpiringScope implements Scope
         'NotExpiring',
         'OnlyExpired',
         'WithoutExpired',
+        'ExpiresToday',
     ];
 
     public function apply(Builder $builder, Model $model): void
@@ -63,4 +64,13 @@ class ExpiringScope implements Scope
                 ->orWhereNull($model->getQualifiedExpiresAtColumn());
         });
     }
+
+    protected function addExpiresToday(Builder $builder): void
+    {
+        $builder->macro('expiresToday', function (Builder $builder) {
+            $model = $builder->getModel();
+
+            return $builder->whereDate($model->getQualifiedExpiresAtColumn(), date('Y-m-d')));
+        });
+    }    
 }
