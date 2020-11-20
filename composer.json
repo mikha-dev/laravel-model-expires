@@ -1,5 +1,5 @@
 {
-    "name": "mvdnbrk/laravel-model-expires",
+    "name": "mikha-dev/laravel-model-expires",
     "description": "A package to assign expiration dates to Eloquent models",
     "keywords": [
         "laravel",
